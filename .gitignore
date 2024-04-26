@@ -1,0 +1,10 @@
+## ALREADY DEFINED LICENSE
+LICENSE
+
+## IDEs
+.vscode/
+.idea/
+
+## JS
+app-frontend/node_modules
+app-frontend/README.md

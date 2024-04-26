@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:15.6-alpine
+    container_name: postgres-task-app-container
+    environment:
+      POSTGRES_DB: task-app-DB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Secret1!
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: elestio/pgadmin:REL-8_0
+    container_name: pgadmin-task-app-container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mail.com
+      PGADMIN_DEFAULT_PASSWORD: admin           
+    ports:
+      - "5050:5050"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  spring-boot-backend:
+    build:
+      context: ./app-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  react-frontend:
+    build:
+      context: ./app-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
+  pgadmin_data:
