@@ -18,4 +18,4 @@ fclean: clean
 re:
 	@clean build
 
-.PHONY: build clean re fclean pushCommit
+.PHONY: build clean re fclean git
