@@ -6,16 +6,16 @@ function HelloWorld() {
 
   useEffect(() => {
     const fetchHello = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/helloWorld");
-        if (!response.ok) {
-          throw new Error(`Error fetching: ${response.status}`);
-        }
+      // try {
+        const response = await fetch(`http://localhost:8080/api/tasks/v1/helloWorld`);
+        // if (!response.ok) {
+        //   throw new Error(`Error fetching: ${response.status}`);
+        // }
         const data = await response.json();
         setGreeting(data.message || "Hello FUCKIN World!");
-      } catch (error) {
-        setError(error.message);
-      }
+      // } catch (error) {
+      //   setError(error.message);
+      // }
     };
 
     fetchHello();

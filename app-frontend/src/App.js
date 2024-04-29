@@ -7,7 +7,7 @@ import HelloWorld from './components/HelloWorld'
 const App = () => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/helloWorld' element={<HelloWorld />}/>
@@ -17,7 +17,7 @@ const App = () => {
             <Route path=':id/edit' element={<EditTask />} />
           </Route> */}
         </Routes>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </BrowserRouter>
   );
 };

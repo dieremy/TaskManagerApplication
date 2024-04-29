@@ -13,6 +13,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+
+
 public class SecurityConfiguration {
 
     @Bean
@@ -21,7 +23,7 @@ public class SecurityConfiguration {
                 .cors(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth ->{
-                    auth.requestMatchers("/helloWorld").permitAll();
+                    auth.requestMatchers("/api/tasks/v1/helloWorld").permitAll();
                 })
                 .build();
     }
